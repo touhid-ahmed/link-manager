@@ -17,3 +17,11 @@ def detail_links(request, pk):
 
     return render(request, 'linktracker/detail.html', {'detail': detail})
  
+def create_link(request):
+    pass
+
+def delete_link(request, pk):
+    pass
+
+def update_link(request, pk):
+    pass
