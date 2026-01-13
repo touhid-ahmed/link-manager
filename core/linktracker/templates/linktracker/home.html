@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href="{% static 'linktracker/styles.css' %}">
+</head>
+
+<body>
+  <nav class="navbar">
+    <!-- Option A (recommended): POST logout (safer with CSRF) -->
+    <form method="post" action="#">
+      {% csrf_token %}
+      <button class="btn btn-outline" type="submit">Logout</button>
+    </form>
+  </nav>
+
+  <main class="page">
+    <h1>Link Manager</h1>
+
+    <div class="actions">
+      <a class="btn" href="#">Add Link</a>
+      <a class="btn btn-outline" href="{% url 'linktracker:list_links' %}">View Links</a>
+    </div>
+  </main>
+</body>
+</html>

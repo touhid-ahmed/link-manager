@@ -10,24 +10,25 @@
 
     <body>
         <header>
-
-        <nav>
-
-            <!-- Centered Search Bar -->
-
-
-            <ul class="nav-links">
-                <li>
-                    <a href="#">
-                        logout
-                    </a>
-                </li>
-            </ul>
-
-
-        </nav>            
-            <h1>Add new link</h1>
+            
+        <nav class="navbar">
+            <form method="post" action="#">
+            {% csrf_token %}
+            <button class="btn btn-outline" type="submit">Logout</button>
+            </form>
+        </nav>   
         </header>
+
+        <main class="page">
+
+            <h1>Add new link</h1>
+
+            
+
+
+
+        </main>
+        
 
         
 

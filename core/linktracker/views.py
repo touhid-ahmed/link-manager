@@ -43,3 +43,7 @@ def delete_link(request, pk):
 
 def update_link(request, pk):
     pass
+
+
+def home(request):
+    return render(request, "linktracker/home.html")

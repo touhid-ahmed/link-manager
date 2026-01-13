@@ -46,7 +46,42 @@ tr:hover td {
 }
 
 
-button {
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+}
 
-    font-size: 15px;
+.page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+
+.actions {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    gap: 14px; /* horizontal spacing */
+    flex-wrap: wrap;
+}
+
+/* Slightly nicer button style (you said it's okay to modify) */
+.btn {
+    padding: 10px 16px;
+    border: 1px solid #4CAF50;
+    background: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.btn:hover {
+    opacity: 0.95;
+}
+
+.btn-outline {
+    background: #fff;
+    color: #4CAF50;
 }
