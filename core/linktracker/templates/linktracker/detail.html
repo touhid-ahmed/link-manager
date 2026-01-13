@@ -1,18 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>link detail</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{detail.name}} detail</title>
+        <link rel="stylesheet" href="{% static 'linktracker/styles.css' %}">
     </head>
 
+
     <body>
-
-        <h1>{{detail.name}}</h1>
-        <h1>{{detail.link_url}}</h1>
-        <h1>{{detail.description}}</h1>
-        <h1>{{detail.created}}</h1>
-        <h1>{{detail.updated}}</h1>
+        <header>
+            <h1>{{detail.name}}</h1>
+        </header>
+    
+        <table>
+            <tr>
+                <th>Link Name</th>
+                <th>Link URL</th>
+                <th>Link Description</th>
+                <th>Created at</th>
+                <th>Last Updated</th>
+            </tr>
+            
+            <td>{{detail.name}}</td>
+            <td>{{detail.link_url}}</td>
+            <td>{{detail.description}}</td>
+            <td>{{detail.created}}</td>
+            <td>{{detail.updated}}</td>
         
+        </table>
+
     </body>
-
-
 </html>

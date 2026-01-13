@@ -1,0 +1,52 @@
+
+h1 {
+
+    text-align: center;
+    color: #4CAF50;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* Table Layout */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    position: relative;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    
+}
+
+td {
+    background-color: #ffffff;
+}
+
+/* Alternating Row Colors */
+tr:nth-child(even) td {
+    background-color: #e1f8da;
+    
+}
+
+tr:hover td {
+    background-color:  #ceffd7;
+}
+
+
+button {
+
+    font-size: 15px;
+}

@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponseRedirect
 from .models import Link
+from .forms import NewLinkForm
 
 # Create your views here.
  
@@ -18,7 +20,23 @@ def detail_links(request, pk):
     return render(request, 'linktracker/detail.html', {'detail': detail})
  
 def create_link(request):
-    pass
+    
+    submitted = False
+
+    if request.method == "POST":
+        form = NewLinkForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/newlink?submitted=True')
+
+
+    else:
+        form = NewLinkForm()
+        if 'submitted' in request.GET:
+            submitted = True
+    
+    return render(request, "linktracker/newlink.html", {"form": form, 'submitted': submitted})
 
 def delete_link(request, pk):
     pass

@@ -1,18 +1,63 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>link list</title>
+        <link rel="stylesheet" href="{% static 'linktracker/styles.css' %}">
     </head>
 
     <body>
+        <header>
 
-        <h1>List of Links</h1>
-        {% for link in links %}
-            <h2>
-                {{link.name}}
-            </h2>
-        {% endfor %}
+        <nav>
 
+            <!-- Centered Search Bar -->
+
+
+            <ul class="nav-links">
+                <li>
+                    <a href="#">
+                        logout
+                    </a>
+                </li>
+            </ul>
+
+
+        </nav>            
+            <h1>List of Links</h1>
+        </header>
+
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Link Name</th>
+                    <th>Actions</th>
+                </tr>
+
+            </thead>
+            
+            <tbody>
+                {% for link in links %}
+
+                    <tr>
+                        <td>
+                            <a href="{% url 'linktracker:detail_links' link.id %}">{{link.name}}</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'linktracker:detail_links' link.id %}" button>Update</button></a>
+                        </td>
+                    </tr>
+                
+                {% endfor %}
+            
+            </tbody>
+        
+        </table>
+            
     </body>
 
 
