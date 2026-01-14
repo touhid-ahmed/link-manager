@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Link</title>
+  <title>Update Link</title>
   <link rel="stylesheet" href="{% static 'linktracker/styles.css' %}">
 </head>
 
@@ -12,16 +12,11 @@
   {% if submitted %}
     <br>
     <center>
-      <p><strong>New Link Was Added Successfully!</strong></p>
-      <br>
-
-      <a href="{% url 'linktracker:create_link' %}">
-        <button type="button" class="btn">Add Another</button>
-      </a>
+      <p><strong>Link for {{link_obj.name}} Was Updated Successfully!</strong></p>
 
       <br><br>
 
-      <a href="{% url 'linktracker:home' %}">
+      <a href="{% url 'linktracker:list_links' %}">
         <button type="button" class="btn btn-outline">Back</button>
       </a>
     </center>
@@ -38,7 +33,7 @@
     </header>
 
     <main class="page">
-      <h1>Add new link</h1>
+      <h1>Update {{ link_obj.name }}</h1>
 
       <form method="post">
         {% csrf_token %}
@@ -83,7 +78,7 @@
         <br>
 
         <button type="submit" class="btn">Submit</button>
-        <a href="{% url 'linktracker:home' %}">
+        <a href="{% url 'linktracker:list_links' %}">
           <button type="button" class="btn btn-outline">Cancel</button>
         </a>
       </form>

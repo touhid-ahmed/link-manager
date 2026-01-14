@@ -42,7 +42,10 @@
                             <a href="{% url 'linktracker:detail_links' link.id %}">{{link.name}}</a>
                         </td>
                         <td>
-                            <a href="{% url 'linktracker:detail_links' link.id %}" button>Update</button></a>
+                            <div class="actions">
+                                <a class="icon-btn" href="{% url 'linktracker:update_link' link.id %}" title="Update">✏️</a>
+                                <a class="icon-btn icon-btn-danger" href="{% url 'linktracker:delete_link' link.id %}" title="Delete">❌</a>
+                            </div>
                         </td>
                     </tr>
                 

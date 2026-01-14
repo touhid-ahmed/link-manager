@@ -11,7 +11,7 @@
 <body>
   <nav class="navbar">
     <!-- Option A (recommended): POST logout (safer with CSRF) -->
-    <form method="post" action="#">
+    <form method="post" action="">
       {% csrf_token %}
       <button class="btn btn-outline" type="submit">Logout</button>
     </form>
@@ -21,7 +21,7 @@
     <h1>Link Manager</h1>
 
     <div class="actions">
-      <a class="btn" href="#">Add Link</a>
+      <a class="btn" href="{% url 'linktracker:create_link' %}">Add Link</a>
       <a class="btn btn-outline" href="{% url 'linktracker:list_links' %}">View Links</a>
     </div>
   </main>

@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from django.http import HttpResponseRedirect
 from .models import Link
 from .forms import NewLinkForm
@@ -24,12 +25,12 @@ def create_link(request):
     submitted = False
 
     if request.method == "POST":
-        form = NewLinkForm(request.POST)
 
+        form = NewLinkForm(request.POST)
+    
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/newlink?submitted=True')
-
+            return HttpResponseRedirect('/links/new?submitted=True')
 
     else:
         form = NewLinkForm()
@@ -38,11 +39,39 @@ def create_link(request):
     
     return render(request, "linktracker/newlink.html", {"form": form, 'submitted': submitted})
 
-def delete_link(request, pk):
-    pass
 
 def update_link(request, pk):
-    pass
+    submitted = False
+
+    link = get_object_or_404(Link, id=pk)
+
+    if request.method == "POST":
+
+        form = NewLinkForm(request.POST, instance=link)
+    
+        if form.is_valid():
+            form.save()
+            url = reverse("linktracker:update_link", args=[pk])
+            return redirect(f"{url}?submitted=True")
+
+    else:
+        form = NewLinkForm(instance=link)
+        if 'submitted' in request.GET:
+            submitted = True
+    
+    return render(request, "linktracker/updatelink.html", {"form": form, 'submitted': submitted, "link_pk": pk, "link_obj": link})
+
+def delete_link(request, pk):
+    link = get_object_or_404(Link, id=pk)
+
+    if request.method == "POST":
+        if 'cancel' in request.POST:
+            return redirect('linktracker:list_links')
+
+        link.delete()
+        return redirect('linktracker:list_links')
+
+    return render(request, 'linktracker/deletelink.html', {'link': link})
 
 
 def home(request):

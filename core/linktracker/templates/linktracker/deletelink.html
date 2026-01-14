@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Link</title>
+  <link rel="stylesheet" href="{% static 'linktracker/styles.css' %}">
+</head>
+
+<body>
+<center><body>
+    <div class="container">
+        <h2>Confirm Delete</h2>
+        <p>Are you sure you want to remove the following object?</p>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" name="submitted">Yes</button>
+            <button type="submit" name="cancel">No</button>
+        </form>
+    </div>
+</body></center>
+
+</body>
+</html>
